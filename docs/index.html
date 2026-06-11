@@ -1,1 +1,1040 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>AI4S Financial Domain — Agent-Governed Discovery Architectures</title>
+  <meta name="description" content="AI for Science applied to financial and professional advisory domains: algorithmic trading, tax planning, litigation strategy, financial advice, and investment banking / M&A. Agent-governed workflows with deterministic engines, stress testing, professional review, and evaluation-agent governance." />
+
+  <style>
+    :root{
+      --bg:#07080d;
+      --panel:#0f1220;
+      --panel-2:#141836;
+      --text:#eef0ff;
+      --muted:#b8bddb;
+      --border:rgba(255,255,255,0.09);
+      --accent:#7aa2ff;
+      --accent2:#6ee7c8;
+      --warn:#ffd27a;
+      --shadow:0 18px 60px rgba(0,0,0,0.45);
+      --good:rgba(110,231,200,0.95);
+      --good2:rgba(122,162,255,0.85);
+    }
+
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:
+        radial-gradient(900px 600px at 15% 10%, rgba(122,162,255,0.18), transparent 55%),
+        radial-gradient(800px 600px at 85% 20%, rgba(110,231,200,0.12), transparent 55%),
+        radial-gradient(900px 650px at 60% 95%, rgba(255,210,122,0.07), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      line-height:1.6;
+    }
+
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{color:var(--accent2);text-decoration:underline;}
+
+    .container{max-width:1140px;margin:0 auto;padding:32px 20px 84px;}
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:260px;
+    }
+
+    .logo{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      background:linear-gradient(135deg, rgba(122,162,255,0.85), rgba(110,231,200,0.75));
+      box-shadow:0 10px 24px rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.14);
+    }
+
+    .brand div{line-height:1.2;}
+
+    .brand .title{
+      font-size:12px;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-weight:900;
+    }
+
+    .brand .sub{
+      font-size:12px;
+      color:var(--muted);
+      opacity:0.95;
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+    }
+
+    .nav a{
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(0,0,0,0.14);
+      color:var(--muted);
+    }
+
+    .nav a:hover{
+      background:rgba(0,0,0,0.22);
+      border-color: rgba(122,162,255,0.35);
+      text-decoration:none;
+      color:var(--text);
+    }
+
+    .hero{
+      padding:38px 34px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(20,24,54,0.92), rgba(15,18,32,0.88));
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(520px 360px at 16% 0%, rgba(122,162,255,0.18), transparent 60%),
+        radial-gradient(460px 330px at 92% 18%, rgba(110,231,200,0.10), transparent 60%),
+        radial-gradient(520px 360px at 55% 110%, rgba(255,210,122,0.08), transparent 60%);
+      pointer-events:none;
+      opacity:0.9;
+    }
+
+    .hero > *{position:relative;}
+
+    .kicker{
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .hero h1{
+      font-size:38px;
+      margin:12px 0 10px;
+      line-height:1.15;
+      max-width:88ch;
+      text-transform:uppercase;
+      letter-spacing:0.02em;
+    }
+
+    .subtitle{
+      margin:0;
+      max-width:110ch;
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    .section{margin-top:56px;}
+
+    .section h2{
+      font-size:28px;
+      margin:0 0 14px;
+      letter-spacing:-0.02em;
+    }
+
+    .section p{
+      color:var(--muted);
+      max-width:110ch;
+      margin:10px 0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+      gap:18px;
+      margin-top:22px;
+    }
+
+    .card{
+      padding:20px 20px;
+      border-radius:18px;
+      background:rgba(20,24,54,0.72);
+      border:1px solid var(--border);
+      box-shadow:0 10px 30px rgba(0,0,0,0.30);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:18px;
+      line-height:1.25;
+    }
+
+    .card p{
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .linkcard{
+      display:block;
+      cursor:pointer;
+      transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .linkcard:hover{
+      transform: translateY(-2px);
+      border-color: rgba(122,162,255,0.35);
+      background: rgba(20,24,54,0.86);
+      text-decoration:none;
+    }
+
+    .linkcard:focus{
+      outline:2px solid rgba(110,231,200,0.46);
+      outline-offset:3px;
+    }
+
+    .hint{
+      margin-top:12px;
+      font-size:12px;
+      color:var(--muted);
+      opacity:0.92;
+      font-weight:700;
+      letter-spacing:0.02em;
+    }
+
+    .callout{
+      margin-top:18px;
+      padding:18px 18px;
+      border-radius:18px;
+      border:1px solid rgba(122,162,255,0.18);
+      background:linear-gradient(135deg, rgba(122,162,255,0.06), rgba(110,231,200,0.04));
+      color:var(--muted);
+      max-width:110ch;
+    }
+
+    .callout strong{color:var(--text);}
+
+    .list{
+      margin-top:18px;
+      padding-left:22px;
+      color:var(--muted);
+      max-width:110ch;
+    }
+
+    .list li{margin-bottom:12px;}
+    .list strong{color:var(--text);}
+
+    .pillrow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(0,0,0,0.18);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:0.02em;
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:rgba(122,162,255,0.9);
+      box-shadow:0 0 0 3px rgba(122,162,255,0.18);
+    }
+
+    .dot.g{
+      background:rgba(110,231,200,0.95);
+      box-shadow:0 0 0 3px rgba(110,231,200,0.18);
+    }
+
+    .dot.y{
+      background:rgba(255,210,122,0.95);
+      box-shadow:0 0 0 3px rgba(255,210,122,0.18);
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(0,0,0,0.18);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:0.05em;
+      text-transform:uppercase;
+    }
+
+    .btnrow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(0,0,0,0.18);
+      color:var(--text);
+      font-weight:900;
+      letter-spacing:0.04em;
+      font-size:12px;
+      text-transform:uppercase;
+      transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+    }
+
+    .btn:hover{
+      transform: translateY(-1px);
+      background:rgba(0,0,0,0.26);
+      border-color: rgba(110,231,200,0.40);
+      text-decoration:none;
+      color:var(--text);
+    }
+
+    .btn.secondary{
+      color:var(--muted);
+      border-color: rgba(122,162,255,0.20);
+    }
+
+    .btn.secondary:hover{
+      border-color: rgba(122,162,255,0.45);
+    }
+
+    .divider{
+      margin-top:22px;
+      border:0;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    .stageTable{
+      margin-top:18px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      overflow:hidden;
+      background:rgba(20,24,54,0.55);
+      box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .stageHeader{
+      display:grid;
+      grid-template-columns: 160px 1.4fr 1fr;
+      padding:14px 16px;
+      background:rgba(0,0,0,0.16);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+    }
+
+    .stageRow{
+      display:grid;
+      grid-template-columns: 160px 1.4fr 1fr;
+      gap:0;
+      padding:16px 16px;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    .stageRow:first-child{border-top:0;}
+
+    .stageTag{
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:0.10em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .stageName{
+      font-size:16px;
+      font-weight:900;
+      color:var(--text);
+      margin:0 0 6px;
+      line-height:1.25;
+    }
+
+    .stageDesc{
+      color:var(--muted);
+      font-size:13px;
+      margin:0;
+      max-width:78ch;
+    }
+
+    .stageObj{
+      color:var(--muted);
+      font-size:13px;
+      margin:0;
+    }
+
+    .stageObj strong{color:var(--text);}
+
+    .stageCell{
+      padding-right:14px;
+    }
+
+    .stageCell:last-child{
+      padding-right:0;
+      border-left:1px solid rgba(255,255,255,0.08);
+      padding-left:14px;
+    }
+
+    .reviewbox{
+      margin-top:18px;
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(110,231,200,0.18);
+      background:linear-gradient(135deg, rgba(110,231,200,0.06), rgba(122,162,255,0.05));
+      color:var(--muted);
+      max-width:110ch;
+    }
+
+    .reviewbox strong{color:var(--text);}
+
+    .reviewbox .stars{
+      color:var(--warn);
+      font-weight:900;
+      letter-spacing:0.08em;
+    }
+
+    .reviewbox ul{
+      margin:10px 0 0 18px;
+      padding:0;
+    }
+
+    .reviewbox li{margin:8px 0;}
+
+    .reviewbox hr{
+      border:0;
+      border-top:1px solid rgba(255,255,255,0.10);
+      margin:14px 0;
+    }
+
+    .reviewmeta{
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted);
+      opacity:0.95;
+    }
+
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:12px;
+      color:var(--text);
+      background: rgba(0,0,0,0.22);
+      padding:2px 6px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.10);
+    }
+
+    .small{
+      font-size:13px;
+      color:var(--muted);
+      max-width:110ch;
+    }
+
+    .footer{
+      margin-top:80px;
+      padding-top:24px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+
+    .mini{
+      font-size:12px;
+      color:var(--muted);
+      opacity:0.95;
+      margin-top:10px;
+      max-width:110ch;
+    }
+
+    @media (max-width:900px){
+      .stageHeader, .stageRow{grid-template-columns: 1fr;}
+      .stageCell:last-child{
+        border-left:0;
+        padding-left:0;
+        padding-top:10px;
+      }
+      .stageCell{padding-right:0;}
+      .hero h1{max-width:unset;}
+    }
+
+    @media (max-width:720px){
+      .hero{padding:28px 20px;}
+      .hero h1{font-size:30px;}
+      .topbar{flex-direction:column;align-items:flex-start;}
+      .nav{justify-content:flex-start;}
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <script>
+      window.AI4S_DOMAIN = {
+        REPO_URL: "https://github.com/alexdibol/ai4s_financial_domain",
+        NOTEBOOKS_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
+        PAPERS_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers",
+
+        ALGO_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
+        TAX_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
+        LITIGATION_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
+        ADVICE_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
+        IB_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
+
+        ALGO_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers",
+        TAX_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers",
+        LITIGATION_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers",
+        ADVICE_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers",
+        IB_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers"
+      };
+    </script>
+
+    <header class="topbar" aria-label="Repository navigation">
+      <div class="brand" aria-label="AI4S financial domain brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="title">AI4S Financial Domain</div>
+          <div class="sub">Agent-Governed Discovery · Finance · Tax · Legal · Advice · M&amp;A</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Jump links">
+        <a href="#top">Home</a>
+        <a href="#domains">Domains</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#principles">Principles</a>
+        <a href="#use">Use</a>
+        <a href="#disclaimer">Disclaimers</a>
+        <a href="#" id="repoLink" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="kicker">AI for Science · financial domains · agentic workflows · professional governance</div>
+
+      <h1>AI4S Financial Domain: Agent-Governed Discovery Architectures</h1>
+
+      <p class="subtitle">
+        This repository is a collection of governed AI4S prototypes for high-accountability financial and professional domains.
+        The project applies the <strong>AI for Science discovery loop</strong> to algorithmic trading, tax planning,
+        civil litigation strategy, financial advice, and investment banking / M&amp;A. Across all domains, the same rule applies:
+        <strong>the model proposes, deterministic engines compute, professional review challenges, and governance decides.</strong>
+      </p>
+
+      <div class="pillrow" aria-label="Architecture principles">
+        <span class="pill"><span class="dot"></span> LLM = Candidate Generator</span>
+        <span class="pill"><span class="dot g"></span> Code = Deterministic Evaluator</span>
+        <span class="pill"><span class="dot y"></span> Stress Tests = Fragility Probe</span>
+        <span class="pill"><span class="dot"></span> Human Review = Professional Gate</span>
+        <span class="pill"><span class="dot g"></span> Evaluation Agent = Governance Loop</span>
+      </div>
+
+      <div class="pillrow" style="margin-top:14px;" aria-label="Positioning">
+        <span class="badge">Educational</span>
+        <span class="badge">Methodological</span>
+        <span class="badge">Synthetic Data</span>
+        <span class="badge">Audit-Oriented</span>
+        <span class="badge">Not Advice</span>
+      </div>
+
+      <div class="btnrow" aria-label="Quick actions">
+        <a class="btn" href="#domains">Explore the Five Domains</a>
+        <a class="btn secondary" href="#" id="repoBtn" target="_blank" rel="noopener">Open GitHub Repository</a>
+        <a class="btn secondary" href="#" id="notebooksBtn" target="_blank" rel="noopener">Open Notebooks</a>
+        <a class="btn secondary" href="#" id="papersBtn" target="_blank" rel="noopener">Open Papers</a>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="callout">
+        <strong>Core thesis:</strong> Generative AI can support professional discovery only when it is placed inside a controlled
+        architecture: bounded candidate generation, deterministic computation, stress testing, professional review, failure-context memory,
+        and explicit stopping rules.
+      </div>
+
+      <p class="mini">
+        <strong>Design principle:</strong> this repository is not organized around model capability. It is organized around
+        <code>scope → hypothesis → computation → stress → review → decision → audit trail</code>.
+      </p>
+    </section>
+
+    <section class="section" id="why">
+      <h2>Why AI4S Matters for Financial and Professional Domains</h2>
+
+      <p>
+        High-stakes professional work is not solved by a persuasive answer. A strategy must be testable, reviewable, defensible,
+        and compatible with domain constraints. In finance, tax, law, wealth management, and M&amp;A, the real risk is not that an
+        AI system says nothing useful. The risk is that it says something plausible, confident, and wrong.
+      </p>
+
+      <ul class="list">
+        <li><strong>AI4S turns plausible output into testable hypotheses:</strong> the LLM proposes candidates that must enter a structured evaluation pipeline.</li>
+        <li><strong>Deterministic engines prevent narrative hallucination from becoming calculation:</strong> numerical results come from code, not prose.</li>
+        <li><strong>Stress testing challenges base-case optimism:</strong> each candidate is tested under adverse conditions before approval.</li>
+        <li><strong>Human review remains a binding control:</strong> simulated professional agents model the review that real deployment would require.</li>
+        <li><strong>Evaluation agents preserve governance discipline:</strong> continuation, stopping, and failure memory are explicit.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Non-negotiable premise:</strong> In professional domains, capability without governance becomes decision laundering.
+        This collection treats governance as architecture, not as a disclaimer.
+      </div>
+    </section>
+
+    <section class="section" id="domains">
+      <h2>The Five AI4S Financial Domain Architectures</h2>
+
+      <p>
+        The collection is organized into five domain-specific prototypes. Each one uses a different deterministic engine,
+        professional-review layer, stress-test structure, and stopping condition. The common pattern is identical:
+        generate, compute, stress, review, decide, and iterate.
+      </p>
+
+      <div class="grid">
+        <a class="card linkcard" id="algoCard" href="#" target="_blank" rel="noopener">
+          <h3>1. AI4S Algorithmic Trading</h3>
+          <p>
+            Agent-governed alpha discovery with synthetic market data, feature engineering, LLM-generated hypotheses,
+            deterministic backtesting, stress testing, paper simulation, and EvaluationAgent governance.
+          </p>
+          <div class="hint">Open notebooks / paper →</div>
+        </a>
+
+        <a class="card linkcard" id="taxCard" href="#" target="_blank" rel="noopener">
+          <h3>2. AI4S Tax Planning and Audit Governance</h3>
+          <p>
+            Tax-strategy discovery with a synthetic tax code, taxpayer profile, deterministic tax engine, legal gate,
+            stress testing, simulated CPA review, and TaxEvaluationAgent governance.
+          </p>
+          <div class="hint">Open notebooks / paper →</div>
+        </a>
+
+        <a class="card linkcard" id="litigationCard" href="#" target="_blank" rel="noopener">
+          <h3>3. AI4S Civil Litigation Strategy</h3>
+          <p>
+            Legal theory discovery with synthetic jurisdiction rules, evidence inventory, precedent simulation,
+            ethical gate, settlement analysis, attorney review, and LitigationEvaluationAgent governance.
+          </p>
+          <div class="hint">Open notebooks / paper →</div>
+        </a>
+
+        <a class="card linkcard" id="adviceCard" href="#" target="_blank" rel="noopener">
+          <h3>4. AI4S Financial Advice</h3>
+          <p>
+            Household wealth planning with ranked goals, synthetic market assumptions, Monte Carlo simulation,
+            suitability gate, behavioral review, stress testing, and WealthEvaluationAgent governance.
+          </p>
+          <div class="hint">Open notebooks / paper →</div>
+        </a>
+
+        <a class="card linkcard" id="ibCard" href="#" target="_blank" rel="noopener">
+          <h3>5. AI4S Investment Banking and M&amp;A</h3>
+          <p>
+            M&amp;A target discovery with acquirer mandate, target universe, deterministic valuation, synergy modeling,
+            deal structuring, regulatory screen, MD review, and DealEvaluationAgent governance.
+          </p>
+          <div class="hint">Open notebooks / paper →</div>
+        </a>
+      </div>
+
+      <div class="callout">
+        <strong>Collection logic:</strong> these are not five unrelated examples. They are five mappings of the same AI4S architecture
+        into five professional domains with different risks, constraints, and review standards.
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <h2>Common Architecture Across the Collection</h2>
+
+      <p>
+        Every project in the repository follows the same governance grammar. The domain changes, but the structure remains stable.
+        This makes the collection useful as a general template for responsible AI-assisted professional discovery.
+      </p>
+
+      <div class="stageTable" role="table" aria-label="Common AI4S architecture table">
+        <div class="stageHeader" role="row">
+          <div role="columnheader">Layer</div>
+          <div role="columnheader">What it does</div>
+          <div role="columnheader">Governance object</div>
+        </div>
+
+        <div class="stageRow" role="row">
+          <div class="stageCell" role="cell"><div class="stageTag">Layer 1</div></div>
+          <div class="stageCell" role="cell">
+            <div class="stageName">Structured Domain Universe</div>
+            <p class="stageDesc">
+              Defines the bounded world in which the system operates: market data, tax code, legal universe,
+              market assumptions, or deal universe.
+            </p>
+          </div>
+          <div class="stageCell" role="cell">
+            <p class="stageObj"><strong>Boundary discipline</strong><br/>The model cannot invent the universe it is evaluated against.</p>
+          </div>
+        </div>
+
+        <div class="stageRow" role="row">
+          <div class="stageCell" role="cell"><div class="stageTag">Layer 2</div></div>
+          <div class="stageCell" role="cell">
+            <div class="stageName">Case, Client, Market, or Mandate Profile</div>
+            <p class="stageDesc">
+              Encodes the specific facts of the problem: taxpayer, litigant, household, acquirer, target universe,
+              or trading environment.
+            </p>
+          </div>
+          <div class="stageCell" role="cell">
+            <p class="stageObj"><strong>Fact discipline</strong><br/>The workflow begins from structured facts, not open-ended storytelling.</p>
+          </div>
+        </div>
+
+        <div class="stageRow" role="row">
+          <div class="stageCell" role="cell"><div class="stageTag">Layer 3</div></div>
+          <div class="stageCell" role="cell">
+            <div class="stageName">LLM Candidate Generation</div>
+            <p class="stageDesc">
+              Generates strategies, hypotheses, theories, target shortlists, or planning alternatives under a constrained vocabulary.
+            </p>
+          </div>
+          <div class="stageCell" role="cell">
+            <p class="stageObj"><strong>Creativity under constraint</strong><br/>The LLM proposes candidates; it does not authorize outcomes.</p>
+          </div>
+        </div>
+
+        <div class="stageRow" role="row">
+          <div class="stageCell" role="cell"><div class="stageTag">Layer 4</div></div>
+          <div class="stageCell" role="cell">
+            <div class="stageName">Deterministic Analytical Engine</div>
+            <p class="stageDesc">
+              Computes domain-specific outcomes: backtests, tax liability, expected litigation value, Monte Carlo goal scores,
+              or M&amp;A valuation and accretion.
+            </p>
+          </div>
+          <div class="stageCell" role="cell">
+            <p class="stageObj"><strong>Computation discipline</strong><br/>Numbers come from reproducible code, not model prose.</p>
+          </div>
+        </div>
+
+        <div class="stageRow" role="row">
+          <div class="stageCell" role="cell"><div class="stageTag">Layer 5</div></div>
+          <div class="stageCell" role="cell">
+            <div class="stageName">Stress Testing</div>
+            <p class="stageDesc">
+              Challenges the best candidate under adverse conditions to expose fragility before review or recommendation.
+            </p>
+          </div>
+          <div class="stageCell" role="cell">
+            <p class="stageObj"><strong>Fragility discipline</strong><br/>Base-case success is not enough.</p>
+          </div>
+        </div>
+
+        <div class="stageRow" role="row">
+          <div class="stageCell" role="cell"><div class="stageTag">Layer 6</div></div>
+          <div class="stageCell" role="cell">
+            <div class="stageName">Professional Review Agent</div>
+            <p class="stageDesc">
+              Simulates the review layer appropriate to the domain: CPA, attorney, CFP, Managing Director, or research governor.
+            </p>
+          </div>
+          <div class="stageCell" role="cell">
+            <p class="stageObj"><strong>Accountability discipline</strong><br/>Professional judgment remains a gate, not decoration.</p>
+          </div>
+        </div>
+
+        <div class="stageRow" role="row">
+          <div class="stageCell" role="cell"><div class="stageTag">Layer 7</div></div>
+          <div class="stageCell" role="cell">
+            <div class="stageName">Evaluation Agent</div>
+            <p class="stageDesc">
+              Decides whether to continue, stop successfully, or halt after maximum rounds. Failed candidates become structured memory.
+            </p>
+          </div>
+          <div class="stageCell" role="cell">
+            <p class="stageObj"><strong>Governance discipline</strong><br/>The system learns from failure without searching indefinitely.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="workflow">
+      <h2>The Shared AI4S Workflow</h2>
+
+      <p>
+        The same discovery loop appears in all five domains. This is the core reusable architecture of the repository.
+      </p>
+
+      <div class="callout">
+        <strong>Structured Domain Universe</strong><br/>
+        ↓<br/>
+        <strong>Case / Client / Market / Mandate Profile</strong><br/>
+        ↓<br/>
+        <strong>LLM Candidate Generation</strong><br/>
+        ↓<br/>
+        <strong>Parser and Validation Layer</strong><br/>
+        ↓<br/>
+        <strong>Domain-Specific Deterministic Engine</strong><br/>
+        ↓<br/>
+        <strong>Stress Testing</strong><br/>
+        ↓<br/>
+        <strong>Professional Review Agent</strong><br/>
+        ↓<br/>
+        <strong>Evaluation Agent</strong><br/>
+        ↓<br/>
+        <strong>Failure Context Injection</strong><br/>
+        ↓<br/>
+        <strong>Next Research Cycle</strong>
+      </div>
+
+      <p class="mini">
+        The purpose of the loop is not to make the AI autonomous. The purpose is to make the professional research process
+        more explicit, more systematic, more reviewable, and more accountable.
+      </p>
+    </section>
+
+    <section class="section" id="principles">
+      <h2>Shared Design Principles</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>1. The LLM proposes; it does not authorize</h3>
+          <p>
+            The model generates candidates, strategies, theories, or target shortlists. It does not approve trades,
+            tax strategies, legal recommendations, financial plans, or M&amp;A transactions.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>2. Deterministic engines compute outcomes</h3>
+          <p>
+            Backtests, tax liabilities, litigation expected values, goal probabilities, valuations, synergies,
+            and accretion metrics are computed by code-controlled engines.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>3. Professional gates are mandatory</h3>
+          <p>
+            Each domain includes a domain-appropriate professional review layer before any candidate can be treated as acceptable.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>4. Stress testing is part of the method</h3>
+          <p>
+            Candidates are tested under adverse scenarios to reveal fragility that a base-case result may hide.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>5. Failure becomes structured memory</h3>
+          <p>
+            Rejected candidates, stress failures, and professional concerns are converted into failure context for the next cycle.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>6. Governance separates research from deployment</h3>
+          <p>
+            These notebooks demonstrate controlled research workflows. They do not authorize real-world implementation.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>AI4S interpretation:</strong> failure → diagnosis → revised search → new candidate → new test.
+        This is the reusable discovery mechanism across the entire repository.
+      </div>
+    </section>
+
+    <section class="section" id="use">
+      <h2>Educational and Research Use</h2>
+
+      <p>
+        This repository is intended for students, instructors, researchers, and practitioners who want to understand
+        how generative AI can be used responsibly inside financial and professional advisory workflows.
+      </p>
+
+      <ul class="list">
+        <li><strong>Students of AI in finance:</strong> learn how agentic systems can be constrained, evaluated, and governed.</li>
+        <li><strong>Financial innovation researchers:</strong> study how AI4S maps into professional-services workflows.</li>
+        <li><strong>Model-risk professionals:</strong> examine how logs, gates, stress tests, and review layers can be embedded into notebooks.</li>
+        <li><strong>Practitioners:</strong> use the materials as conceptual prototypes, not as production systems or client-ready advice.</li>
+        <li><strong>Instructors:</strong> adapt the notebooks into courses on AI governance, financial innovation, and professional accountability.</li>
+      </ul>
+
+      <div class="reviewbox">
+        <div><strong>Repository status</strong></div>
+        <div class="stars" aria-label="Governance-oriented">GOVERNANCE-FIRST</div>
+
+        <div class="reviewmeta">
+          Type: <code>educational / methodological collection</code> · Status: <code>not advice</code> · Data: <code>synthetic / simplified</code>
+        </div>
+
+        <hr/>
+
+        <p style="margin:0;">
+          The repository is strongest as a blueprint for disciplined AI-assisted discovery. Its value is not that any single
+          notebook produces a production-ready recommendation. Its value is that each notebook makes professional judgment,
+          deterministic computation, stress testing, and governance explicit.
+        </p>
+
+        <hr/>
+
+        <div><strong>Recommended reading path:</strong></div>
+        <ul>
+          <li>Start with the README to understand the common architecture.</li>
+          <li>Open the domain card most relevant to your interest.</li>
+          <li>Read the paper before running the notebook.</li>
+          <li>Inspect the deterministic engine before interpreting the agent outputs.</li>
+          <li>Treat every result as a research artifact, not a recommendation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="disclaimer">
+      <h2>License and Disclaimers</h2>
+
+      <p class="small">
+        <strong>Educational disclaimer:</strong> This material is provided for educational and methodological purposes only.
+        It does not constitute investment advice, financial advice, legal advice, tax advice, accounting advice, regulatory advice,
+        fiduciary advice, transaction advice, or a recommendation to buy, sell, short, hold, trade, invest, litigate, settle, file,
+        structure, merge, acquire, or finance any transaction.
+      </p>
+
+      <p class="small">
+        <strong>No professional-client relationship:</strong> Use of this repository does not create an attorney-client relationship,
+        advisor-client relationship, CPA-client relationship, fiduciary relationship, investment-banking engagement, or any professional duty.
+      </p>
+
+      <p class="small">
+        <strong>Synthetic data and simplified assumptions:</strong> The notebooks use synthetic data, synthetic legal and tax environments,
+        simplified financial assumptions, and simulated professional-review personas. These choices are intentional and make the architecture
+        transparent and inspectable. They do not establish real-world validity.
+      </p>
+
+      <p class="small">
+        <strong>No autonomous decision authority:</strong> No output from this repository should be used for live trading, tax planning,
+        legal strategy, financial planning, capital allocation, client communication, board recommendation, or transaction execution without
+        independent verification, professional review, legal and compliance approval, risk approval, and institutional authorization.
+      </p>
+
+      <p class="small">
+        <strong>Client confidentiality and data hygiene:</strong> Do not paste confidential client information, privileged material,
+        private financial data, tax records, transaction data, or non-public information into external model prompts. Use redaction,
+        anonymization, and minimum-necessary inputs by default.
+      </p>
+
+      <p class="small">
+        <strong>Use of generative AI tools:</strong> Generative AI tools may have been used to assist in drafting, editing, formatting,
+        diagramming, or code scaffolding during development. Conceptual design, governance logic, domain interpretation, and final
+        editorial judgment remain human-led and human-approved.
+      </p>
+
+      <p class="small">
+        <strong>License:</strong> Unless otherwise stated in the repository, this work is released under the repository’s license file.
+      </p>
+
+      <div class="callout">
+        <strong>Minimum institutional standard:</strong> If any notebook pattern is adapted outside the classroom, require a named human
+        reviewer to sign off on scope, data provenance, assumptions, risks, intended use, and non-reliance boundaries.
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>
+        <strong>AI4S Financial Domain</strong> · Agent-Governed Discovery Architectures for High-Accountability Professional Work
+      </div>
+      <div style="margin-top:8px;">
+        Model proposes · Code computes · Stress tests challenge · Professionals review · Governance decides
+      </div>
+      <div style="margin-top:12px;">
+        <a href="#top">Home</a> ·
+        <a href="#domains">Domains</a> ·
+        <a href="#architecture">Architecture</a> ·
+        <a href="#workflow">Workflow</a> ·
+        <a href="#principles">Principles</a> ·
+        <a href="#disclaimer">Disclaimers</a> ·
+        <a href="#" id="footerRepo" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div style="margin-top:12px; opacity:0.9;">
+        <span class="small">Status: <code>not verified</code> · Educational entry point, not institutional certification.</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    (function(){
+      const cfg = window.AI4S_DOMAIN || {};
+      const byId = (id) => document.getElementById(id);
+
+      const setHref = (id, href) => {
+        const el = byId(id);
+        if(el && href){ el.href = href; }
+      };
+
+      setHref("repoLink", cfg.REPO_URL);
+      setHref("repoBtn", cfg.REPO_URL);
+      setHref("footerRepo", cfg.REPO_URL);
+      setHref("notebooksBtn", cfg.NOTEBOOKS_URL);
+      setHref("papersBtn", cfg.PAPERS_URL);
+
+      setHref("algoCard", cfg.ALGO_PAPER_URL || cfg.PAPERS_URL);
+      setHref("taxCard", cfg.TAX_PAPER_URL || cfg.PAPERS_URL);
+      setHref("litigationCard", cfg.LITIGATION_PAPER_URL || cfg.PAPERS_URL);
+      setHref("adviceCard", cfg.ADVICE_PAPER_URL || cfg.PAPERS_URL);
+      setHref("ibCard", cfg.IB_PAPER_URL || cfg.PAPERS_URL);
+    })();
+  </script>
+</body>
+</html>
+```
 
