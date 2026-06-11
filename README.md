@@ -1,6 +1,4 @@
-I used the repository-format example and the five manuscripts as the basis for this README structure.  The five-domain collection covers algorithmic trading, tax planning, litigation strategy, financial advice, and investment banking / M&A.     
 
-# ai4s_financial_domain
 
 ## AI for Science Applied to Financial and Professional Advisory Domains
 
