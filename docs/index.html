@@ -1,4 +1,4 @@
-
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -582,20 +582,22 @@
     <script>
       window.AI4S_DOMAIN = {
         REPO_URL: "https://github.com/alexdibol/ai4s_financial_domain",
+        DOCS_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/docs",
         NOTEBOOKS_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
         PAPERS_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers",
 
-        ALGO_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
-        TAX_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
-        LITIGATION_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
-        ADVICE_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
-        IB_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
+        ALGO_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/notebooks/COLAB%20ALGO%20TRADING.ipynb",
+        ALGO_AUDIT_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/notebooks/COLAB%20ALGO%20TRADING%20FULLY%20AUDITABLE.ipynb",
+        TAX_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/notebooks/COLAB%20TAX%20PLANNING.ipynb",
+        LITIGATION_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/notebooks/COLAB%20LITIGATION.ipynb",
+        ADVICE_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/notebooks/COLAB%20FINANCIAL%20ADVISE.ipynb",
+        IB_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/notebooks/COLAB%20INVESTMENT%20BANKING.ipynb",
 
-        ALGO_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers",
-        TAX_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers",
-        LITIGATION_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers",
-        ADVICE_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers",
-        IB_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers"
+        ALGO_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/papers/AI4S%20ALGO%20TRADING.pdf",
+        TAX_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/papers/AI4S%20TAX%20PLANNING.pdf",
+        LITIGATION_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/papers/AI4S%20LITIGATION.pdf",
+        ADVICE_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/papers/AI4S%20FINANCIAL%20ADVISE.pdf",
+        IB_PAPER_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/papers/AI4S%20INVESTMENT%20BANKING.pdf"
       };
     </script>
 
@@ -708,7 +710,7 @@
             Agent-governed alpha discovery with synthetic market data, feature engineering, LLM-generated hypotheses,
             deterministic backtesting, stress testing, paper simulation, and EvaluationAgent governance.
           </p>
-          <div class="hint">Open notebooks / paper →</div>
+          <div class="hint">Open paper PDF →</div>
         </a>
 
         <a class="card linkcard" id="taxCard" href="#" target="_blank" rel="noopener">
@@ -717,7 +719,7 @@
             Tax-strategy discovery with a synthetic tax code, taxpayer profile, deterministic tax engine, legal gate,
             stress testing, simulated CPA review, and TaxEvaluationAgent governance.
           </p>
-          <div class="hint">Open notebooks / paper →</div>
+          <div class="hint">Open paper PDF →</div>
         </a>
 
         <a class="card linkcard" id="litigationCard" href="#" target="_blank" rel="noopener">
@@ -726,7 +728,7 @@
             Legal theory discovery with synthetic jurisdiction rules, evidence inventory, precedent simulation,
             ethical gate, settlement analysis, attorney review, and LitigationEvaluationAgent governance.
           </p>
-          <div class="hint">Open notebooks / paper →</div>
+          <div class="hint">Open paper PDF →</div>
         </a>
 
         <a class="card linkcard" id="adviceCard" href="#" target="_blank" rel="noopener">
@@ -735,7 +737,7 @@
             Household wealth planning with ranked goals, synthetic market assumptions, Monte Carlo simulation,
             suitability gate, behavioral review, stress testing, and WealthEvaluationAgent governance.
           </p>
-          <div class="hint">Open notebooks / paper →</div>
+          <div class="hint">Open paper PDF →</div>
         </a>
 
         <a class="card linkcard" id="ibCard" href="#" target="_blank" rel="noopener">
@@ -744,7 +746,7 @@
             M&amp;A target discovery with acquirer mandate, target universe, deterministic valuation, synergy modeling,
             deal structuring, regulatory screen, MD review, and DealEvaluationAgent governance.
           </p>
-          <div class="hint">Open notebooks / paper →</div>
+          <div class="hint">Open paper PDF →</div>
         </a>
       </div>
 
@@ -1069,7 +1071,6 @@
         <span class="small">Status: <code>not verified</code> · Educational entry point, not institutional certification.</span>
       </div>
     </footer>
-
   </main>
 
   <script>
@@ -1087,17 +1088,19 @@
       setHref("repoLink", cfg.REPO_URL);
       setHref("repoBtn", cfg.REPO_URL);
       setHref("footerRepo", cfg.REPO_URL);
+
       setHref("notebooksBtn", cfg.NOTEBOOKS_URL);
       setHref("papersBtn", cfg.PAPERS_URL);
 
-      setHref("algoCard", cfg.ALGO_PAPER_URL || cfg.PAPERS_URL);
-      setHref("taxCard", cfg.TAX_PAPER_URL || cfg.PAPERS_URL);
-      setHref("litigationCard", cfg.LITIGATION_PAPER_URL || cfg.PAPERS_URL);
-      setHref("adviceCard", cfg.ADVICE_PAPER_URL || cfg.PAPERS_URL);
-      setHref("ibCard", cfg.IB_PAPER_URL || cfg.PAPERS_URL);
+      setHref("algoCard", cfg.ALGO_PAPER_URL);
+      setHref("taxCard", cfg.TAX_PAPER_URL);
+      setHref("litigationCard", cfg.LITIGATION_PAPER_URL);
+      setHref("adviceCard", cfg.ADVICE_PAPER_URL);
+      setHref("ibCard", cfg.IB_PAPER_URL);
     })();
   </script>
 </body>
 </html>
+```
 
 
