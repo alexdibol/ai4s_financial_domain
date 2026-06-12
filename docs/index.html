@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -465,6 +464,7 @@
         PAPERS_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers",
 
         AI4S_MASTER_DECK_URL: "https://drive.google.com/file/d/15isWCRWvVYALryWTCzvZLYIwnJvHcoGu/view?usp=sharing",
+        AI4S_BOOK_URL: "BOOK AI4S.pdf",
 
         ALGO_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/notebooks/COLAB%20ALGO%20TRADING.ipynb",
         ALGO_AUDIT_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/notebooks/COLAB%20ALGO%20TRADING%20FULLY%20AUDITABLE.ipynb",
@@ -533,6 +533,7 @@
       <div class="btnrow" aria-label="Quick actions">
         <a class="btn" href="#domains">Explore the Five Domains</a>
         <a class="btn secondary" href="#" id="masterDeckHeroBtn" target="_blank" rel="noopener">Open Master Deck</a>
+        <a class="btn secondary" href="#" id="bookHeroBtn" target="_blank" rel="noopener">Open AI4S Book</a>
         <a class="btn secondary" href="#" id="repoBtn" target="_blank" rel="noopener">Open GitHub Repository</a>
         <a class="btn secondary" href="#" id="notebooksBtn" target="_blank" rel="noopener">Open Notebooks Folder</a>
         <a class="btn secondary" href="#" id="papersBtn" target="_blank" rel="noopener">Open Papers Folder</a>
@@ -587,15 +588,17 @@
       <div class="grid">
 
         <div class="card featured-card">
-          <div class="card-badge">Master Deck</div>
+          <div class="card-badge">Master Resources</div>
           <h3>AI4S: Framework for Scientific Discovery in Finance</h3>
           <p>
-            Comprehensive presentation deck covering the complete AI4S architecture, governance framework,
-            discovery-loop methodology, agent-governed workflows, and all five financial-domain applications:
-            algorithmic trading, tax planning, civil litigation strategy, financial advice, and investment banking &amp; M&amp;A.
+            Comprehensive presentation deck and companion book covering the complete AI4S architecture,
+            governance framework, discovery-loop methodology, agent-governed workflows, and all five
+            financial-domain applications: algorithmic trading, tax planning, civil litigation strategy,
+            financial advice, and investment banking &amp; M&amp;A.
           </p>
           <div class="btnrow">
             <a class="btn" id="ai4sMasterDeckBtn" href="#" target="_blank" rel="noopener">Open Master Deck</a>
+            <a class="btn secondary" id="ai4sBookBtn" href="#" target="_blank" rel="noopener">Open AI4S Book</a>
           </div>
         </div>
 
@@ -670,10 +673,8 @@
 
     <section class="section" id="architecture">
       <h2>Common Architecture Across the Collection</h2>
-
       <p>
         Every project in the repository follows the same governance grammar. The domain changes, but the structure remains stable.
-        This makes the collection useful as a general template for responsible AI-assisted professional discovery.
       </p>
 
       <div class="stageTable" role="table" aria-label="Common AI4S architecture table">
@@ -684,95 +685,78 @@
         </div>
 
         <div class="stageRow" role="row">
-          <div class="stageCell" role="cell"><div class="stageTag">Layer 1</div></div>
-          <div class="stageCell" role="cell">
+          <div class="stageCell"><div class="stageTag">Layer 1</div></div>
+          <div class="stageCell">
             <div class="stageName">Structured Domain Universe</div>
-            <p class="stageDesc">
-              Defines the bounded world in which the system operates: market data, tax code, legal universe,
-              market assumptions, or deal universe.
-            </p>
+            <p class="stageDesc">Defines the bounded world in which the system operates.</p>
           </div>
-          <div class="stageCell" role="cell">
+          <div class="stageCell">
             <p class="stageObj"><strong>Boundary discipline</strong><br/>The model cannot invent the universe it is evaluated against.</p>
           </div>
         </div>
 
         <div class="stageRow" role="row">
-          <div class="stageCell" role="cell"><div class="stageTag">Layer 2</div></div>
-          <div class="stageCell" role="cell">
+          <div class="stageCell"><div class="stageTag">Layer 2</div></div>
+          <div class="stageCell">
             <div class="stageName">Case, Client, Market, or Mandate Profile</div>
-            <p class="stageDesc">
-              Encodes the specific facts of the problem: taxpayer, litigant, household, acquirer, target universe,
-              or trading environment.
-            </p>
+            <p class="stageDesc">Encodes the specific facts of the problem.</p>
           </div>
-          <div class="stageCell" role="cell">
-            <p class="stageObj"><strong>Fact discipline</strong><br/>The workflow begins from structured facts, not open-ended storytelling.</p>
+          <div class="stageCell">
+            <p class="stageObj"><strong>Fact discipline</strong><br/>The workflow begins from structured facts.</p>
           </div>
         </div>
 
         <div class="stageRow" role="row">
-          <div class="stageCell" role="cell"><div class="stageTag">Layer 3</div></div>
-          <div class="stageCell" role="cell">
+          <div class="stageCell"><div class="stageTag">Layer 3</div></div>
+          <div class="stageCell">
             <div class="stageName">LLM Candidate Generation</div>
-            <p class="stageDesc">
-              Generates strategies, hypotheses, theories, target shortlists, or planning alternatives under a constrained vocabulary.
-            </p>
+            <p class="stageDesc">Generates strategies, hypotheses, theories, target shortlists, or planning alternatives.</p>
           </div>
-          <div class="stageCell" role="cell">
+          <div class="stageCell">
             <p class="stageObj"><strong>Creativity under constraint</strong><br/>The LLM proposes candidates; it does not authorize outcomes.</p>
           </div>
         </div>
 
         <div class="stageRow" role="row">
-          <div class="stageCell" role="cell"><div class="stageTag">Layer 4</div></div>
-          <div class="stageCell" role="cell">
+          <div class="stageCell"><div class="stageTag">Layer 4</div></div>
+          <div class="stageCell">
             <div class="stageName">Deterministic Analytical Engine</div>
-            <p class="stageDesc">
-              Computes domain-specific outcomes: backtests, tax liability, expected litigation value, Monte Carlo goal scores,
-              or M&amp;A valuation and accretion.
-            </p>
+            <p class="stageDesc">Computes domain-specific outcomes.</p>
           </div>
-          <div class="stageCell" role="cell">
+          <div class="stageCell">
             <p class="stageObj"><strong>Computation discipline</strong><br/>Numbers come from reproducible code, not model prose.</p>
           </div>
         </div>
 
         <div class="stageRow" role="row">
-          <div class="stageCell" role="cell"><div class="stageTag">Layer 5</div></div>
-          <div class="stageCell" role="cell">
+          <div class="stageCell"><div class="stageTag">Layer 5</div></div>
+          <div class="stageCell">
             <div class="stageName">Stress Testing</div>
-            <p class="stageDesc">
-              Challenges the best candidate under adverse conditions to expose fragility before review or recommendation.
-            </p>
+            <p class="stageDesc">Challenges the best candidate under adverse conditions.</p>
           </div>
-          <div class="stageCell" role="cell">
+          <div class="stageCell">
             <p class="stageObj"><strong>Fragility discipline</strong><br/>Base-case success is not enough.</p>
           </div>
         </div>
 
         <div class="stageRow" role="row">
-          <div class="stageCell" role="cell"><div class="stageTag">Layer 6</div></div>
-          <div class="stageCell" role="cell">
+          <div class="stageCell"><div class="stageTag">Layer 6</div></div>
+          <div class="stageCell">
             <div class="stageName">Professional Review Agent</div>
-            <p class="stageDesc">
-              Simulates the review layer appropriate to the domain: CPA, attorney, CFP, Managing Director, or research governor.
-            </p>
+            <p class="stageDesc">Simulates the review layer appropriate to the domain.</p>
           </div>
-          <div class="stageCell" role="cell">
-            <p class="stageObj"><strong>Accountability discipline</strong><br/>Professional judgment remains a gate, not decoration.</p>
+          <div class="stageCell">
+            <p class="stageObj"><strong>Accountability discipline</strong><br/>Professional judgment remains a gate.</p>
           </div>
         </div>
 
         <div class="stageRow" role="row">
-          <div class="stageCell" role="cell"><div class="stageTag">Layer 7</div></div>
-          <div class="stageCell" role="cell">
+          <div class="stageCell"><div class="stageTag">Layer 7</div></div>
+          <div class="stageCell">
             <div class="stageName">Evaluation Agent</div>
-            <p class="stageDesc">
-              Decides whether to continue, stop successfully, or halt after maximum rounds. Failed candidates become structured memory.
-            </p>
+            <p class="stageDesc">Decides whether to continue, stop successfully, or halt.</p>
           </div>
-          <div class="stageCell" role="cell">
+          <div class="stageCell">
             <p class="stageObj"><strong>Governance discipline</strong><br/>The system learns from failure without searching indefinitely.</p>
           </div>
         </div>
@@ -781,11 +765,6 @@
 
     <section class="section" id="workflow">
       <h2>The Shared AI4S Workflow</h2>
-
-      <p>
-        The same discovery loop appears in all five domains. This is the core reusable architecture of the repository.
-      </p>
-
       <div class="callout">
         <strong>Structured Domain Universe</strong><br/>
         ↓<br/>
@@ -807,105 +786,35 @@
         ↓<br/>
         <strong>Next Research Cycle</strong>
       </div>
-
-      <p class="mini">
-        The purpose of the loop is not to make the AI autonomous. The purpose is to make the professional research process
-        more explicit, more systematic, more reviewable, and more accountable.
-      </p>
     </section>
 
     <section class="section" id="principles">
       <h2>Shared Design Principles</h2>
-
       <div class="grid">
-        <div class="card">
-          <h3>1. The LLM proposes; it does not authorize</h3>
-          <p>
-            The model generates candidates, strategies, theories, or target shortlists. It does not approve trades,
-            tax strategies, legal recommendations, financial plans, or M&amp;A transactions.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>2. Deterministic engines compute outcomes</h3>
-          <p>
-            Backtests, tax liabilities, litigation expected values, goal probabilities, valuations, synergies,
-            and accretion metrics are computed by code-controlled engines.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>3. Professional gates are mandatory</h3>
-          <p>
-            Each domain includes a domain-appropriate professional review layer before any candidate can be treated as acceptable.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>4. Stress testing is part of the method</h3>
-          <p>
-            Candidates are tested under adverse scenarios to reveal fragility that a base-case result may hide.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>5. Failure becomes structured memory</h3>
-          <p>
-            Rejected candidates, stress failures, and professional concerns are converted into failure context for the next cycle.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>6. Governance separates research from deployment</h3>
-          <p>
-            These notebooks demonstrate controlled research workflows. They do not authorize real-world implementation.
-          </p>
-        </div>
-      </div>
-
-      <div class="callout">
-        <strong>AI4S interpretation:</strong> failure → diagnosis → revised search → new candidate → new test.
-        This is the reusable discovery mechanism across the entire repository.
+        <div class="card"><h3>1. The LLM proposes; it does not authorize</h3><p>The model generates candidates, strategies, theories, or target shortlists.</p></div>
+        <div class="card"><h3>2. Deterministic engines compute outcomes</h3><p>Metrics are computed by code-controlled engines.</p></div>
+        <div class="card"><h3>3. Professional gates are mandatory</h3><p>Each domain includes a domain-appropriate professional review layer.</p></div>
+        <div class="card"><h3>4. Stress testing is part of the method</h3><p>Candidates are tested under adverse scenarios.</p></div>
+        <div class="card"><h3>5. Failure becomes structured memory</h3><p>Rejected candidates and concerns are converted into failure context.</p></div>
+        <div class="card"><h3>6. Governance separates research from deployment</h3><p>These notebooks demonstrate controlled research workflows.</p></div>
       </div>
     </section>
 
     <section class="section" id="use">
       <h2>Educational and Research Use</h2>
-
       <p>
         This repository is intended for students, instructors, researchers, and practitioners who want to understand
         how generative AI can be used responsibly inside financial and professional advisory workflows.
       </p>
 
-      <ul class="list">
-        <li><strong>Students of AI in finance:</strong> learn how agentic systems can be constrained, evaluated, and governed.</li>
-        <li><strong>Financial innovation researchers:</strong> study how AI4S maps into professional-services workflows.</li>
-        <li><strong>Model-risk professionals:</strong> examine how logs, gates, stress tests, and review layers can be embedded into notebooks.</li>
-        <li><strong>Practitioners:</strong> use the materials as conceptual prototypes, not as production systems or client-ready advice.</li>
-        <li><strong>Instructors:</strong> adapt the notebooks into courses on AI governance, financial innovation, and professional accountability.</li>
-      </ul>
-
       <div class="reviewbox">
         <div><strong>Repository status</strong></div>
         <div class="stars" aria-label="Governance-oriented">GOVERNANCE-FIRST</div>
-
-        <div class="reviewmeta">
-          Type: <code>educational / methodological collection</code> · Status: <code>not advice</code> · Data: <code>synthetic / simplified</code>
-        </div>
-
+        <div class="reviewmeta">Type: <code>educational / methodological collection</code> · Status: <code>not advice</code></div>
         <hr/>
-
-        <p style="margin:0;">
-          The repository is strongest as a blueprint for disciplined AI-assisted discovery. Its value is not that any single
-          notebook produces a production-ready recommendation. Its value is that each notebook makes professional judgment,
-          deterministic computation, stress testing, and governance explicit.
-        </p>
-
-        <hr/>
-
         <div><strong>Recommended reading path:</strong></div>
         <ul>
-          <li>Start with the master deck to understand the common architecture.</li>
+          <li>Start with the AI4S book and master deck to understand the common architecture.</li>
           <li>Read the paper for the domain most relevant to your interest.</li>
           <li>Run the corresponding Colab notebook.</li>
           <li>Inspect the deterministic engine before interpreting the agent outputs.</li>
@@ -916,39 +825,11 @@
 
     <section class="section" id="disclaimer">
       <h2>License and Disclaimers</h2>
-
       <p class="small">
         <strong>Educational disclaimer:</strong> This material is provided for educational and methodological purposes only.
         It does not constitute investment advice, financial advice, legal advice, tax advice, accounting advice, regulatory advice,
         fiduciary advice, transaction advice, or a recommendation to buy, sell, short, hold, trade, invest, litigate, settle, file,
         structure, merge, acquire, or finance any transaction.
-      </p>
-
-      <p class="small">
-        <strong>No professional-client relationship:</strong> Use of this repository does not create an attorney-client relationship,
-        advisor-client relationship, CPA-client relationship, fiduciary relationship, investment-banking engagement, or any professional duty.
-      </p>
-
-      <p class="small">
-        <strong>Synthetic data and simplified assumptions:</strong> The notebooks use synthetic data, synthetic legal and tax environments,
-        simplified financial assumptions, and simulated professional-review personas. These choices are intentional and make the architecture
-        transparent and inspectable. They do not establish real-world validity.
-      </p>
-
-      <p class="small">
-        <strong>No autonomous decision authority:</strong> No output from this repository should be used for live trading, tax planning,
-        legal strategy, financial planning, capital allocation, client communication, board recommendation, or transaction execution without
-        independent verification, professional review, legal and compliance approval, risk approval, and institutional authorization.
-      </p>
-
-      <p class="small">
-        <strong>Client confidentiality and data hygiene:</strong> Do not paste confidential client information, privileged material,
-        private financial data, tax records, transaction data, or non-public information into external model prompts. Use redaction,
-        anonymization, and minimum-necessary inputs by default.
-      </p>
-
-      <p class="small">
-        <strong>License:</strong> Unless otherwise stated in the repository, this work is released under the repository’s license file.
       </p>
 
       <div class="callout">
@@ -993,7 +874,9 @@
       setHref("footerRepo", cfg.REPO_URL);
 
       setHref("masterDeckHeroBtn", cfg.AI4S_MASTER_DECK_URL);
+      setHref("bookHeroBtn", cfg.AI4S_BOOK_URL);
       setHref("ai4sMasterDeckBtn", cfg.AI4S_MASTER_DECK_URL);
+      setHref("ai4sBookBtn", cfg.AI4S_BOOK_URL);
 
       setHref("notebooksBtn", cfg.NOTEBOOKS_URL);
       setHref("papersBtn", cfg.PAPERS_URL);
@@ -1017,6 +900,5 @@
   </script>
 </body>
 </html>
-
 
 
