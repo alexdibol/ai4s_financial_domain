@@ -6,13 +6,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>AI4S Financial Domain — Agent-Governed Discovery Architectures</title>
-  <meta name="description" content="AI for Science applied to financial and professional advisory domains: algorithmic trading, tax planning, litigation strategy, financial advice, and investment banking / M&A. Agent-governed workflows with deterministic engines, stress testing, professional review, and evaluation-agent governance." />
+  <meta name="description" content="AI for Science applied to financial and professional advisory domains: algorithmic trading, tax planning, litigation strategy, financial advice, and investment banking / M&A." />
 
   <style>
     :root{
       --bg:#07080d;
       --panel:#0f1220;
-      --panel-2:#141836;
       --text:#eef0ff;
       --muted:#b8bddb;
       --border:rgba(255,255,255,0.09);
@@ -20,19 +19,10 @@
       --accent2:#6ee7c8;
       --warn:#ffd27a;
       --shadow:0 18px 60px rgba(0,0,0,0.45);
-      --good:rgba(110,231,200,0.95);
-      --good2:rgba(122,162,255,0.85);
     }
 
-    *{
-      box-sizing:border-box;
-    }
-
-    html,
-    body{
-      height:100%;
-      scroll-behavior:smooth;
-    }
+    *{box-sizing:border-box;}
+    html,body{height:100%;scroll-behavior:smooth;}
 
     body{
       margin:0;
@@ -46,21 +36,10 @@
       line-height:1.6;
     }
 
-    a{
-      color:var(--accent);
-      text-decoration:none;
-    }
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{color:var(--accent2);text-decoration:underline;}
 
-    a:hover{
-      color:var(--accent2);
-      text-decoration:underline;
-    }
-
-    .container{
-      max-width:1140px;
-      margin:0 auto;
-      padding:32px 20px 84px;
-    }
+    .container{max-width:1140px;margin:0 auto;padding:32px 20px 84px;}
 
     .topbar{
       display:flex;
@@ -70,12 +49,7 @@
       margin-bottom:18px;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:260px;
-    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:260px;}
 
     .logo{
       width:36px;
@@ -86,9 +60,7 @@
       border:1px solid rgba(255,255,255,0.14);
     }
 
-    .brand div{
-      line-height:1.2;
-    }
+    .brand div{line-height:1.2;}
 
     .brand .title{
       font-size:12px;
@@ -98,11 +70,7 @@
       font-weight:900;
     }
 
-    .brand .sub{
-      font-size:12px;
-      color:var(--muted);
-      opacity:0.95;
-    }
+    .brand .sub{font-size:12px;color:var(--muted);opacity:0.95;}
 
     .nav{
       display:flex;
@@ -152,9 +120,7 @@
       opacity:0.9;
     }
 
-    .hero > *{
-      position:relative;
-    }
+    .hero > *{position:relative;}
 
     .kicker{
       text-transform:uppercase;
@@ -179,9 +145,7 @@
       font-size:16px;
     }
 
-    .section{
-      margin-top:56px;
-    }
+    .section{margin-top:56px;}
 
     .section h2{
       font-size:28px;
@@ -203,7 +167,7 @@
     }
 
     .card{
-      padding:20px 20px;
+      padding:20px;
       border-radius:18px;
       background:rgba(20,24,54,0.72);
       border:1px solid var(--border);
@@ -212,11 +176,35 @@
       overflow:hidden;
     }
 
+    .card.featured-card{
+      grid-column:1 / -1;
+      background:
+        linear-gradient(135deg, rgba(255,210,122,0.14), rgba(122,162,255,0.08)),
+        rgba(20,24,54,0.86);
+      border-color:rgba(255,210,122,0.28);
+    }
+
+    .card-badge{
+      display:inline-flex;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,210,122,0.35);
+      color:var(--warn);
+      background:rgba(0,0,0,0.18);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+
     .card h3{
       margin:0 0 10px;
       font-size:18px;
       line-height:1.25;
     }
+
+    .featured-card h3{font-size:24px;}
 
     .card p{
       margin:0;
@@ -226,7 +214,7 @@
 
     .callout{
       margin-top:18px;
-      padding:18px 18px;
+      padding:18px;
       border-radius:18px;
       border:1px solid rgba(122,162,255,0.18);
       background:linear-gradient(135deg, rgba(122,162,255,0.06), rgba(110,231,200,0.04));
@@ -234,9 +222,7 @@
       max-width:110ch;
     }
 
-    .callout strong{
-      color:var(--text);
-    }
+    .callout strong{color:var(--text);}
 
     .list{
       margin-top:18px;
@@ -245,20 +231,10 @@
       max-width:110ch;
     }
 
-    .list li{
-      margin-bottom:12px;
-    }
+    .list li{margin-bottom:12px;}
+    .list strong{color:var(--text);}
 
-    .list strong{
-      color:var(--text);
-    }
-
-    .pillrow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:16px;
-    }
+    .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
 
     .pill{
       display:inline-flex;
@@ -307,12 +283,7 @@
       text-transform:uppercase;
     }
 
-    .btnrow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:18px;
-    }
+    .btnrow{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;}
 
     .btn{
       display:inline-flex;
@@ -344,9 +315,7 @@
       border-color:rgba(122,162,255,0.20);
     }
 
-    .btn.secondary:hover{
-      border-color:rgba(122,162,255,0.45);
-    }
+    .btn.secondary:hover{border-color:rgba(122,162,255,0.45);}
 
     .divider{
       margin-top:22px;
@@ -380,13 +349,11 @@
       display:grid;
       grid-template-columns:160px 1.4fr 1fr;
       gap:0;
-      padding:16px 16px;
+      padding:16px;
       border-top:1px solid rgba(255,255,255,0.08);
     }
 
-    .stageRow:first-child{
-      border-top:0;
-    }
+    .stageRow:first-child{border-top:0;}
 
     .stageTag{
       font-size:12px;
@@ -404,26 +371,14 @@
       line-height:1.25;
     }
 
-    .stageDesc{
-      color:var(--muted);
-      font-size:13px;
-      margin:0;
-      max-width:78ch;
-    }
-
-    .stageObj{
+    .stageDesc,.stageObj{
       color:var(--muted);
       font-size:13px;
       margin:0;
     }
 
-    .stageObj strong{
-      color:var(--text);
-    }
-
-    .stageCell{
-      padding-right:14px;
-    }
+    .stageObj strong{color:var(--text);}
+    .stageCell{padding-right:14px;}
 
     .stageCell:last-child{
       padding-right:0;
@@ -441,30 +396,11 @@
       max-width:110ch;
     }
 
-    .reviewbox strong{
-      color:var(--text);
-    }
-
-    .reviewbox .stars{
-      color:var(--warn);
-      font-weight:900;
-      letter-spacing:0.08em;
-    }
-
-    .reviewbox ul{
-      margin:10px 0 0 18px;
-      padding:0;
-    }
-
-    .reviewbox li{
-      margin:8px 0;
-    }
-
-    .reviewbox hr{
-      border:0;
-      border-top:1px solid rgba(255,255,255,0.10);
-      margin:14px 0;
-    }
+    .reviewbox strong{color:var(--text);}
+    .reviewbox .stars{color:var(--warn);font-weight:900;letter-spacing:0.08em;}
+    .reviewbox ul{margin:10px 0 0 18px;padding:0;}
+    .reviewbox li{margin:8px 0;}
+    .reviewbox hr{border:0;border-top:1px solid rgba(255,255,255,0.10);margin:14px 0;}
 
     .reviewmeta{
       margin-top:10px;
@@ -483,11 +419,7 @@
       border:1px solid rgba(255,255,255,0.10);
     }
 
-    .small{
-      font-size:13px;
-      color:var(--muted);
-      max-width:110ch;
-    }
+    .small{font-size:13px;color:var(--muted);max-width:110ch;}
 
     .footer{
       margin-top:80px;
@@ -507,43 +439,17 @@
     }
 
     @media (max-width:900px){
-      .stageHeader,
-      .stageRow{
-        grid-template-columns:1fr;
-      }
-
-      .stageCell:last-child{
-        border-left:0;
-        padding-left:0;
-        padding-top:10px;
-      }
-
-      .stageCell{
-        padding-right:0;
-      }
-
-      .hero h1{
-        max-width:unset;
-      }
+      .stageHeader,.stageRow{grid-template-columns:1fr;}
+      .stageCell:last-child{border-left:0;padding-left:0;padding-top:10px;}
+      .stageCell{padding-right:0;}
+      .hero h1{max-width:unset;}
     }
 
     @media (max-width:720px){
-      .hero{
-        padding:28px 20px;
-      }
-
-      .hero h1{
-        font-size:30px;
-      }
-
-      .topbar{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .nav{
-        justify-content:flex-start;
-      }
+      .hero{padding:28px 20px;}
+      .hero h1{font-size:30px;}
+      .topbar{flex-direction:column;align-items:flex-start;}
+      .nav{justify-content:flex-start;}
     }
   </style>
 </head>
@@ -557,6 +463,8 @@
         DOCS_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/docs",
         NOTEBOOKS_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/notebooks",
         PAPERS_URL: "https://github.com/alexdibol/ai4s_financial_domain/tree/main/papers",
+
+        AI4S_MASTER_DECK_URL: "https://drive.google.com/file/d/15isWCRWvVYALryWTCzvZLYIwnJvHcoGu/view?usp=sharing",
 
         ALGO_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/notebooks/COLAB%20ALGO%20TRADING.ipynb",
         ALGO_AUDIT_NOTEBOOK_URL: "https://github.com/alexdibol/ai4s_financial_domain/blob/main/notebooks/COLAB%20ALGO%20TRADING%20FULLY%20AUDITABLE.ipynb",
@@ -624,6 +532,7 @@
 
       <div class="btnrow" aria-label="Quick actions">
         <a class="btn" href="#domains">Explore the Five Domains</a>
+        <a class="btn secondary" href="#" id="masterDeckHeroBtn" target="_blank" rel="noopener">Open Master Deck</a>
         <a class="btn secondary" href="#" id="repoBtn" target="_blank" rel="noopener">Open GitHub Repository</a>
         <a class="btn secondary" href="#" id="notebooksBtn" target="_blank" rel="noopener">Open Notebooks Folder</a>
         <a class="btn secondary" href="#" id="papersBtn" target="_blank" rel="noopener">Open Papers Folder</a>
@@ -676,6 +585,19 @@
       </p>
 
       <div class="grid">
+
+        <div class="card featured-card">
+          <div class="card-badge">Master Deck</div>
+          <h3>AI4S: Framework for Scientific Discovery in Finance</h3>
+          <p>
+            Comprehensive presentation deck covering the complete AI4S architecture, governance framework,
+            discovery-loop methodology, agent-governed workflows, and all five financial-domain applications:
+            algorithmic trading, tax planning, civil litigation strategy, financial advice, and investment banking &amp; M&amp;A.
+          </p>
+          <div class="btnrow">
+            <a class="btn" id="ai4sMasterDeckBtn" href="#" target="_blank" rel="noopener">Open Master Deck</a>
+          </div>
+        </div>
 
         <div class="card">
           <h3>1. AI4S Algorithmic Trading</h3>
@@ -983,9 +905,9 @@
 
         <div><strong>Recommended reading path:</strong></div>
         <ul>
-          <li>Start with the README to understand the common architecture.</li>
-          <li>Open the domain card most relevant to your interest.</li>
-          <li>Read the paper before running the notebook.</li>
+          <li>Start with the master deck to understand the common architecture.</li>
+          <li>Read the paper for the domain most relevant to your interest.</li>
+          <li>Run the corresponding Colab notebook.</li>
           <li>Inspect the deterministic engine before interpreting the agent outputs.</li>
           <li>Treat every result as a research artifact, not a recommendation.</li>
         </ul>
@@ -1026,12 +948,6 @@
       </p>
 
       <p class="small">
-        <strong>Use of generative AI tools:</strong> Generative AI tools may have been used to assist in drafting, editing, formatting,
-        diagramming, or code scaffolding during development. Conceptual design, governance logic, domain interpretation, and final
-        editorial judgment remain human-led and human-approved.
-      </p>
-
-      <p class="small">
         <strong>License:</strong> Unless otherwise stated in the repository, this work is released under the repository’s license file.
       </p>
 
@@ -1057,9 +973,6 @@
         <a href="#disclaimer">Disclaimers</a> ·
         <a href="#" id="footerRepo" target="_blank" rel="noopener">GitHub</a>
       </div>
-      <div style="margin-top:12px; opacity:0.9;">
-        <span class="small">Status: <code>not verified</code> · Educational entry point, not institutional certification.</span>
-      </div>
     </footer>
   </main>
 
@@ -1078,6 +991,9 @@
       setHref("repoLink", cfg.REPO_URL);
       setHref("repoBtn", cfg.REPO_URL);
       setHref("footerRepo", cfg.REPO_URL);
+
+      setHref("masterDeckHeroBtn", cfg.AI4S_MASTER_DECK_URL);
+      setHref("ai4sMasterDeckBtn", cfg.AI4S_MASTER_DECK_URL);
 
       setHref("notebooksBtn", cfg.NOTEBOOKS_URL);
       setHref("papersBtn", cfg.PAPERS_URL);
@@ -1101,7 +1017,6 @@
   </script>
 </body>
 </html>
-
 
 
 
